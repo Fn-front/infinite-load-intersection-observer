@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 export const InfiniteTable = () => {
 
   const [data, setData] = useState<string[]>([]);
-  const [refData, setRefData] = useState<string[]>([])
+  const [refData, setRefData] = useState<number[]>([])
   const scrollArea = useRef(null)
   const targetElement = useRef<HTMLTableRowElement>(null!)
 
@@ -23,8 +23,8 @@ export const InfiniteTable = () => {
         // 連番の配列
         const array: Array<string> = [...Array(100)].map((_, i) => 'item'+((data.length + (i+1))))
         // 配列格納
-        setData([...data, ...array])
-        setRefData([...refData, entry.target.rowIndex]);
+        setData([...data, ...array])        
+        setRefData([...refData, targetElement.current.rowIndex]);
         
       }
     })
