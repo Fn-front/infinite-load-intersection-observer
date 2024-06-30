@@ -13,8 +13,8 @@ const noto = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "テンプレ",
-  description: "テンプレ",
+  title: "無限ロード（Intersection Observer）",
+  description: "無限ロード（Intersection Observer）",
 };
 
 export default function RootLayout({
