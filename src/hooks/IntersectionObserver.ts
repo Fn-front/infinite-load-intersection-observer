@@ -1,7 +1,9 @@
+'use client'
+
 import { RefObject, useEffect } from 'react'
 
 export const useIntersectionObserver = (
-	refs: RefObject<HTMLElement>[],
+	refs: RefObject<any>[],
 	callback: (entries: IntersectionObserverEntry[]) => void,
 	options?: IntersectionObserverInit
 ): void => {
@@ -19,8 +21,12 @@ export const useIntersectionObserver = (
 
 		return () => {
 			refs.forEach((ref) => {
-        if (ref.current) {
+        if (ref.current) {					
+					// マウント解除
           observer.unobserve(ref.current)
+
+					// disconnectしないとスクロールで戻った後再度画面に表示された際に実行されてしまう
+					observer.disconnect()
         }
       })
 		}
