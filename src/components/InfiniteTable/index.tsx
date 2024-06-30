@@ -45,7 +45,7 @@ export const InfiniteTable = () => {
 
   return (
     <div>
-      <div style={{ overflowY: 'scroll', width: '70vw', margin: '32px auto 0' }} ref={scrollArea}>
+      <div style={{ overflowY: 'scroll', width: '70vw', margin: '32px auto 0', padding: '8px', border: '1px solid rgba(255, 255, 255, 0.5)' }} ref={scrollArea}>
         <div style={{ maxHeight: '500px' }}>
           <table style={{ width: '100%' }}>
             <thead>
@@ -68,7 +68,7 @@ export const InfiniteTable = () => {
         </div>
       </div>
       <div style={{ marginTop: '32px' }}>
-        <p>通過した連番</p>
+        <p>通過した番号</p>
         { refData.map((item, index) => {
             return (
               <p key={index}>{ item }</p>
